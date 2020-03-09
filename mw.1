@@ -13,7 +13,7 @@ This can include offline email with
 and configs for
 .B msmtp
 for sending mail, and also passwords automatically encrypted and stored with
-.B pass.
+.B pm.
 .SH COMMANDS
 .TP
 .B add
@@ -27,11 +27,6 @@ delete the configuration files for an already configured email account
 .TP
 .B purge
 totally purge all local mutt-wizard accounts
-.TP
-.B cron
-toggle a cronjob that will automatically sync mail with
-.B mailsync
-as often as you wish
 .SH DETAILS
 .TP
 .B Mail location
@@ -90,16 +85,12 @@ Many universities and businesses might host their domain's email via Google or a
 .TP
 .B Password decryption
 mutt-wizard uses
-.I pass
+.I pm
 and therefore
 .I gpg
 to decrypt your passwords. Provided your GPG key has a password, this might mean that you will be prompted for your GPG password the first time you sync or send mail in a session. Once your password is cached, it might also expire later as well.
 
-Because of this I strongly recommend the program
-.I pam-gnupg
-<https://github.com/cruegge/pam-gnupg> which automatically unlocks your GPG password on login and keeps it active, thus giving you, with mutt-wizard, secure access to all your email accounts on your system without ever having to input a password.
-
-If you don't want to use this program, you can also increase the cache time of an inputted GPG password with the
+You can increase the cache time of an inputted GPG password with the
 .I default-cache-ttl
 and
 .I max-cache-ttl
@@ -219,7 +210,7 @@ Remember that you can press
 .I ?
 at any time in neomutt to get a list of all key-bindings and functions. This list can also vary for different context menus.
 .SH AUTHORS
-Written by Luke Smith <luke@lukesmith.xyz> originally in 2018.
+Written by Luke Smith <luke@lukesmith.xyz> originally in 2018. Rewritten by Cem Keylan <cem@ckyln.com> in 2020.
 .SH LICENSE
 GPLv3
 .SH SEE ALSO
