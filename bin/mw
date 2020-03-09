@@ -19,6 +19,8 @@ pm_ask() {
 
 ! command -v pm >/dev/null && die "pm must be installed for mutt-wizard to work"
 ! command -v mbsync >/dev/null && die "mbsync must be installed to run mutt-wizard"
+[ "$PM_GPG_USER" ] || die "Please set your GnuPG user for pm by setting the \$PM_GPG_USER variable." \
+                          "If you don't have a gpg key, you can create one by running" "'gpg --full-gen-key'."
 
 prefix="/usr/local"
 muttdir="$HOME/.config/mutt"            # Main mutt config location
