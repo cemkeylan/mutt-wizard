@@ -245,10 +245,10 @@ finalize() { \
         return
     }
     printf "Setting default mailboxes for your Inbox, Sent, Drafts and Trash in mutt...\\n"
-    spoolfile=$(echo "$boxes" | grep -i -m 1 inbox | sed 's/=/+/g')
-    record=$(echo "$boxes" | grep -i -m 1 sent | sed 's/=/+/g')
-    postponed=$(echo "$boxes" | grep -i -m 1 draft | sed 's/=/+/g')
-    trash=$(echo "$boxes" | grep -i -m 1 trash | sed 's/=/+/g')
+    spoolfile=$(echo "$boxes" | grep -i inbox | sed '1q;s/=/+/g')
+    record=$(echo "$boxes" | grep -i sent | sed '1q;s/=/+/g')
+    postponed=$(echo "$boxes" | grep -i draft | sed '1q;s/=/+/g')
+    trash=$(echo "$boxes" | grep -i trash | sed '1q;s/=/+/g')
     sed "/^mailboxes\|^set record\|^set postponed\|^set trash\|^set spoolfile/d" "$accdir/$idnum-$title.muttrc" > _ ; mv _ "$accdir/$idnum-$title.muttrc"
     { echo "set spoolfile = \"$spoolfile\""; echo "set record = \"$record\""; echo "set postponed = \"$postponed\""; echo "set trash = \"$trash\""; } >> "$accdir/$idnum-$title.muttrc"
     echo "mailboxes $(echo "$boxes" | sed -e "s/^\|$/\"/g" | tr "\n" " ")" >> "$accdir/$idnum-$title.muttrc"
