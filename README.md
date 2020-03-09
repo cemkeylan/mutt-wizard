@@ -8,7 +8,7 @@ on my system. Some features have been removed.
 ## Changes
 * Removed the `crontab` feature.
 * Removed the annoying ProtonMail prompt and all ProtonMail functionality.
-* Removed perl dependency.
+* Removed `perl` dependency.
 * Made `sed/find/grep` calls POSIX-compliant.
 * Changed the password manager to [pm] (which removes the dependency of bash).
 * Linted.
