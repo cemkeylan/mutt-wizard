@@ -237,7 +237,7 @@ tryconnect() {
     fi ;}
 
 finalize() { \
-    boxes="$(find "$maildir/$title/" -mindepth 1 -maxdepth 1 | sed "s/\ /\\\ /g;s/^.*\//=/")"
+    boxes="$(find "$maildir/$title/." ! -name . -prune | sed "s/\ /\\\ /g;s/^.*\//=/")"
     [ "$boxes" ] || {
         err "No local mailboxes have been detected for $title" \
             "This means that mbsync has not been successfully run." \
