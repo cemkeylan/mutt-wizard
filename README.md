@@ -18,4 +18,4 @@ on my system. Some features have been removed.
 
 
 
-[pm]: https://github.com/cemkeylan/cem-utils/tree/master/pm
+[pm]: https://github.com/cemkeylan/pm
