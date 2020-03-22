@@ -3,7 +3,7 @@
 mw \- mutt-wizard \- autoconfigure email accounts for neomutt and isync
 .SH SYNOPSIS
 .B mw
-<command>
+[a|c|d|l|p]
 .SH DESCRIPTION
 .B mw
 takes a user email account and sets up a terminal-based email interface with it for
@@ -19,11 +19,14 @@ for sending mail, and also passwords automatically encrypted and stored with
 .B add
 configure an email account
 .TP
-.B ls
-list all email accounts configured by mutt-wizard
+.B change
+change the saved password of an email account
 .TP
 .B delete
 delete the configuration files for an already configured email account
+.TP
+.B ls
+list all email accounts configured by mutt-wizard
 .TP
 .B purge
 totally purge all local mutt-wizard accounts
@@ -78,8 +81,7 @@ on mutt-wizard's Github <https://github.com/lukesmithxyz/mutt-wizard> or Gitlab 
 .TP
 .B Gmail accounts
 Google will require you to allow "less-secure" (third party) applications or use two-factor authentication in order to access their IMAP servers to download your mail. If you use Gmail, be sure to handle this before running mutt-wizard <https://support.google.com/accounts/answer/6010255>.
-.B Protonmail accounts
-Protonmail users must use the Protonmail Bridge <https://protonmail.com/bridge/> to access their IMAP and SMTP servers. This too should be configured before running mutt-wizard.
+.TP
 .B Enterprise and university accounts
 Many universities and businesses might host their domain's email via Google or another service. This often requires a special IMAP/SMTP-specific password that you must generate and use. Again, mutt-wizard can handle these systems, but only once they've been set up.
 .TP
