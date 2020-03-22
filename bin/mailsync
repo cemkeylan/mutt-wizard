@@ -2,7 +2,7 @@
 # Sync mail and give notification if there is new mail.
 
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-export DISPLAY=:0.0
+export DISPLAY=${DISPLAY:=:0.0}
 
 # Run only if not already running in other instance
 pgrep -x mbsync >/dev/null && { echo "mbsync is already running." ; exit ;}
