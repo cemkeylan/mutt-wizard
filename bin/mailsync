@@ -30,4 +30,4 @@ for account in $accounts ; do syncandnotify & done ; wait
 notmuch new 2>/dev/null
 
 #Create a touch file that indicates the time of the last run of mailsync
-touch "$HOME/.config/mutt/.mailsynclastrun"
+touch "$HOME/.cache/.mailsynclastrun"
