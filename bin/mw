@@ -229,7 +229,7 @@ EOF
 tryconnect() {
     mkdir -p "$maildir/$title"
     if mailboxes="$(mbsync -l "$title" | sed 's/\//./')" >/dev/null 2>&1 && [ "$mailboxes" ]; then
-        [ "$accounttype" = "online" ] && sed "/IMAPStore $title-remote$/,/# End profile/d" "$mbsyncrc" > _ ; mv _ "$mbsyncrc"
+        [ "$accounttype" = "online" ] && { sed "/IMAPStore $title-remote$/,/# End profile/d" "$mbsyncrc" > _ ; mv _ "$mbsyncrc" ;}
         printf "\033[32mMailboxes detected.\033[0m\\n"
         echo "$mailboxes" | xargs -I {} mkdir -p "$maildir/$title/{}"
         return 0
