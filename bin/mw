@@ -176,21 +176,25 @@ EOF
         [ "$sport" = 465 ] && starttlsoff="tls_starttls off"
     fi
     out "Enter the full name you want to be identified by on this account."
-    printf '\tReal name: '
+    printf 'Real name: '
     read -r realname
     out "Enter a short, one-word identifier for this email account that will distinguish them from any other accounts you add"
-    printf '\tAccount name: '
+    printf 'Account name: '
     read -r title
     while ! echo "$title" | grep -q "$namere" || ls -1 "$accdir"/[0-9]"-$title.muttrc" >/dev/null 2>&1; do
         err "Try again. Pick a nickname that is one word only including lowercase letters and _ or - and that you have not used before."
-        printf '\tAccount name: '
+        printf 'Account name: '
         read -r title
     done
     out "If your account has a special username different from your address, insert it now. Otherwise leave this prompt totally blank." "Most accounts will not have a separate login, so you should probably leave this blank."
     printf 'Login(?): '
     read -r login
     [ "$login" ] || login="$fulladdr"
-    [ "$accounttype" = "offline" ] && printf "If you want to limit the number of messages kept offline to a number, enter that number below. If you do not want to limit your mail and would like \`mbsync\` to sync all mail, press enter without typing a number.\\n\t" && read -r maxmes
+    [ "$accounttype" = "offline" ] && {
+        out "If you want to limit the number of messages kept offline to a number, enter that number below." \
+            "If you do not want to limit your mail and would like 'mbsync' to sync all mail, press enter without typing a number."
+        read -r maxmes
+    }
     echo "$maxmes" | grep "[1-9]" >/dev/null || maxmes="0"
     getpass
     getprofiles
